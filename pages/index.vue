@@ -23,7 +23,13 @@ const reload = async () => {
       reload()
     }
   }, 1000)
-  const response = null
+  const response = await $fetch('/api/random')
+  refModel.value.description = response.meta.description || response.meta.alt_description || ""
+  refModel.value.url = response.url
+  refModel.value.username = response.meta.user.name
+  refModel.value.userprofileUrl = response.meta.user.profile_image.medium
+  refModel.value.likes = response.meta.likes
+  refModel.value.views = response.meta.views
   // if (!response.ok) {
   //   refModel.value.errorCode = response.status
   //   refModel.value.errorMessage = response.statusText

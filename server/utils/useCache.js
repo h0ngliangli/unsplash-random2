@@ -1,6 +1,6 @@
 import { fileURLToPath } from "node:url"
 import { dirname, join } from "node:path"
-import { writeFileSync } from "node:fs"
+import { existsSync, writeFileSync } from "node:fs"
 // 返回cache目录全路径
 export const useCache_GetPath = () => {
   return join(dirname(fileURLToPath(import.meta.url)), "../../public/cache")
