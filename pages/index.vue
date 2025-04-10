@@ -157,7 +157,7 @@ onMounted(async () => {
   left: 50%;
   max-width: 50%;
   text-align: center;
-  top: 0px;
+  top: 20%;
   transform: translateX(-50%);
 }
 
