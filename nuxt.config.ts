@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     unsplashAccessKeys: process.env.UNSPLASH_ACCESS_KEYS.split(",").filter(
       (key) => key
     ),
-    cacheImagesSize: process.env.CACHE_IMAGES_SIZE || 100,
+    cacheImagesLimit: process.env.CACHE_IMAGES_SIZE || 100,
     cacheDir: process.env.CACHE_DIR || "cache",
     public: {
       intervalSeconds: process.env.NUXT_PUBLIC_INTERVAL_SECONDS || 120,
