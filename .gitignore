@@ -24,4 +24,4 @@ logs
 !.env.example
 
 # cache directory
-public/cache
+/cache

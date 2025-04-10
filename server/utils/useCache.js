@@ -50,7 +50,13 @@ export const useCache_Cleanup = async (limit) => {
 
 // 返回cache目录全路径
 export const useCache_GetPath = () => {
-  return join(dirname(fileURLToPath(import.meta.url)), "../../public/cache")
+  const cacheDir = join(process.cwd(), useRuntimeConfig().cacheDir)
+  console.log("cacheDir", cacheDir)
+  if (!existsSync(cacheDir)) {
+    fs.mkdir(cacheDir, { recursive: true })
+  }
+  return cacheDir
+  // return join(dirname(fileURLToPath(import.meta.url)), "../../public/cache")
 }
 
 // 这个函数与unsplash api深度结合, 将response保存为[id].json文件,
@@ -79,6 +85,6 @@ export const useCache_CacheResponse = async (response) => {
   console.log("cached json", jsonFilePath)
   return {
     meta: response,
-    url: "/cache/" + id + ".jpg",
+    url: "/api/cache/" + id + ".jpg",
   }
 }

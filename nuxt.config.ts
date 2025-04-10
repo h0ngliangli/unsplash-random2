@@ -9,6 +9,7 @@ export default defineNuxtConfig({
       (key) => key
     ),
     cacheImagesSize: process.env.CACHE_IMAGES_SIZE || 100,
+    cacheDir: process.env.CACHE_DIR || "cache",
     public: {
       intervalSeconds: process.env.NUXT_PUBLIC_INTERVAL_SECONDS || 120,
     },
